@@ -1,3 +1,6 @@
+local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local Players = game:GetService('Players')
+
 local SupportedGames = {
     [1008451066] = {
         Name = 'Da Hood',
