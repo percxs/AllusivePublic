@@ -42,7 +42,8 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MainRemotes'):WaitForChild('MainRemoteEvent')
+                local MainRemotes = ReplicatedStorage:FindFirstChild('MainRemotes')
+                return MainRemotes and MainRemotes:FindFirstChild('MainRemoteEvent')
             end
         }
     },
@@ -96,7 +97,7 @@ local SupportedGames = {
         }
     },
 
-    [9602002328] = {
+    [9601997508] = {
         Name = 'Der Hood',
         Updater = 'D3RHooDMSOUEPoS233^+',
         HoodGame = false,
@@ -115,7 +116,8 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MainRemotes'):WaitForChild('MainRemoteEvent')
+                local MainRemotes = ReplicatedStorage:FindFirstChild('MainRemotes')
+                return MainRemotes and MainRemotes:FindFirstChild('MainRemoteEvent')
             end
         }
     },
@@ -239,7 +241,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MAINEVENT')
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
             end
         }
     },
@@ -263,7 +265,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MAINEVENT')
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
             end
         }
     },
@@ -287,7 +289,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MAINEVENT')
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
             end
         }
     },
@@ -311,7 +313,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MAINEVENT')
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
             end
         }
     },
@@ -335,7 +337,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:WaitForChild('MAINEVENT')
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
             end
         }
     },
