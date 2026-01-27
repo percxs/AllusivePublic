@@ -273,7 +273,7 @@ local SupportedGames = {
         }
     },
 
-    [9072755042] = {
+    [9629772507] = {
         Name = 'Da Strike',
         Updater = 'MOUSE',
         HoodGame = false,
