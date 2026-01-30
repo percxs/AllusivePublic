@@ -389,6 +389,28 @@ local SupportedGames = {
             end
         }
     },
+
+    [8627938145] = {
+        Name = 'Hood Z',
+        Updater = 'UpdateMousePos',
+        HoodGame = false,
+        Functions = {
+            KnockedFunction = function(Player)
+                if Player and Player.Character and Player.Character:FindFirstChild('State') then
+                    local State = Player.Character.State
+                    local KO = State:FindFirstChild('KO') or State:FindFirstChild('K.O')
+                    if KO then return KO.Value end
+                end
+                return false
+            end,
+            GrabbedFunction = function(Player)
+                return false
+            end,
+            RemotePath = function()
+                return ReplicatedStorage:FindFirstChild('Remote')
+            end
+        }
+    }
 }
 
 local function GetCurrentGame()
