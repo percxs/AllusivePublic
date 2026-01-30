@@ -407,7 +407,7 @@ local SupportedGames = {
                 return false
             end,
             RemotePath = function()
-                return ReplicatedStorage:FindFirstChild('Remote')
+                return ReplicatedStorage:FindFirstChild('MainEvent')
             end
         }
     }
