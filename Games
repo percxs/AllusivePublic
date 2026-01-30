@@ -100,7 +100,7 @@ local SupportedGames = {
         }
     },
 
-    [9643850857] = {
+    [9645559214] = {
         Name = 'Der Hood',
         Updater = 'D3RHooDMSOUEPoS233^+',
         HoodGame = false,
