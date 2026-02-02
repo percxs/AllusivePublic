@@ -100,7 +100,7 @@ local SupportedGames = {
         }
     },
 
-    [9506144636] = {
+    [9645559214] = {
         Name = 'Der Hood',
         Updater = 'D3RHooDMSOUEPoS233^+',
         HoodGame = false,
@@ -251,6 +251,30 @@ local SupportedGames = {
 
     [9267192939] = {
         Name = 'Da Uphill',
+        Updater = 'MOUSE',
+        HoodGame = false,
+        Functions = {
+            KnockedFunction = function(Player)
+                if Player and Player.Character and Player.Character:FindFirstChild('BodyEffects') then
+                    local KO = Player.Character.BodyEffects:FindFirstChild('K.O')
+                    return KO and KO.Value or false
+                end
+                return false
+            end,
+            GrabbedFunction = function(Player)
+                if Player and Player.Character then
+                    return Player.Character:FindFirstChild('GRABBING_CONSTRAINT') ~= nil
+                end
+                return false
+            end,
+            RemotePath = function()
+                return ReplicatedStorage:FindFirstChild('MAINEVENT')
+            end
+        }
+    },
+
+    [9629772507] = {
+        Name = 'Da Strike',
         Updater = 'MOUSE',
         HoodGame = false,
         Functions = {
@@ -453,15 +477,42 @@ local function ResolveDeeHoodUpdater(gameData)
     return gameData and gameData.Updater
 end
 
---[[
-    UseZeeHoodEmulation     - zee's custom emulation
-    UseDasHoodEmulation     - das hood's entirely new emulation metod ( no one has done it the way i do lmfao)
-    UsePacketsEmulation     - hood moddeds packet based sys
-    UseBoomHoodEmulation    - boom hood emulation
-    UseDanFFAEmulation      - Dan ffa fully custom emulation
-    UseMousePosAttribute    - just updating mouse pos attribute on tool activation
-    
-]]
+local function GetCurrentGame()
+    return SupportedGames[game.GameId]
+end
+
+local function IsGameSupported()
+    return SupportedGames[game.GameId] ~= nil
+end
+
+local function GetSupportedGameIds()
+    local ids = {}
+    for id, _ in pairs(SupportedGames) do
+        table.insert(ids, id)
+    end
+    return ids
+end
+
+local function GetGameByName(name)
+    for id, gameData in pairs(SupportedGames) do
+        if gameData.Name == name then
+            return id, gameData
+        end
+    end
+    return nil, nil
+end
+
+local function ResolveDeeHoodUpdater(gameData)
+    if gameData and gameData.Name == 'Dee Hood' then
+        for _, Player in pairs(Players:GetPlayers()) do
+            if Player.Backpack:GetAttribute('MUV') then
+                gameData.Updater = Player.Backpack:GetAttribute('MUV')
+                return gameData.Updater
+            end
+        end
+    end
+    return gameData and gameData.Updater
+end
 
 return {
     Games = SupportedGames,
