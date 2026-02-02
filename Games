@@ -51,7 +51,7 @@ local SupportedGames = {
         }
     },
 
-    [9605005871] = {
+    [9662713860] = {
         Name = 'Dee Hood',
         Updater = '',
         HoodGame = false,
