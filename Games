@@ -75,7 +75,7 @@ local SupportedGames = {
         }
     },
 
-    [9628959320] = {
+    [9681581021] = {
         Name = 'Zee Hood',
         Updater = 'ZEEHOODMOUSEPOSx3^3',
         HoodGame = false,
