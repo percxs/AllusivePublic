@@ -125,7 +125,7 @@ local SupportedGames = {
         }
     },
 
-    [9568415059] = {
+    [9676334882] = {
         Name = 'Das Hood',
         Updater = nil,
         HoodGame = false,
