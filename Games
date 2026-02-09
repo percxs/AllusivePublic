@@ -231,9 +231,8 @@ local SupportedGames = {
         HoodGame = false,
         Functions = {
             KnockedFunction = function(Player)
-                if Player and Player.Character and Player.Character:FindFirstChild('BodyEffects') then
-                    local KO = Player.Character.BodyEffects:FindFirstChild('K.O')
-                    return KO and KO.Value or false
+                if Player and Player.Character then
+                    return Player.Character:GetAttribute('Knocked') == true
                 end
                 return false
             end,
@@ -255,33 +254,8 @@ local SupportedGames = {
         HoodGame = false,
         Functions = {
             KnockedFunction = function(Player)
-                if Player and Player.Character and Player.Character:FindFirstChild('BodyEffects') then
-                    local KO = Player.Character.BodyEffects:FindFirstChild('K.O')
-                    return KO and KO.Value or false
-                end
-                return false
-            end,
-            GrabbedFunction = function(Player)
                 if Player and Player.Character then
-                    return Player.Character:FindFirstChild('GRABBING_CONSTRAINT') ~= nil
-                end
-                return false
-            end,
-            RemotePath = function()
-                return ReplicatedStorage:FindFirstChild('MAINEVENT')
-            end
-        }
-    },
-
-    [9629772507] = {
-        Name = 'Da Strike',
-        Updater = 'MOUSE',
-        HoodGame = false,
-        Functions = {
-            KnockedFunction = function(Player)
-                if Player and Player.Character and Player.Character:FindFirstChild('BodyEffects') then
-                    local KO = Player.Character.BodyEffects:FindFirstChild('K.O')
-                    return KO and KO.Value or false
+                    return Player.Character:GetAttribute('Knocked') == true
                 end
                 return false
             end,
@@ -303,9 +277,8 @@ local SupportedGames = {
         HoodGame = false,
         Functions = {
             KnockedFunction = function(Player)
-                if Player and Player.Character and Player.Character:FindFirstChild('BodyEffects') then
-                    local KO = Player.Character.BodyEffects:FindFirstChild('K.O')
-                    return KO and KO.Value or false
+                if Player and Player.Character then
+                    return Player.Character:GetAttribute('Knocked') == true
                 end
                 return false
             end,
